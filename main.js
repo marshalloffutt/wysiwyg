@@ -92,7 +92,6 @@ const cardSelector = () => {
           textInput.addEventListener("keyup", (e) => {
               if (e.keyCode === 13) {
                   const biography = thing.childNodes[3].innerHTML;
-                  console.log(biography);
                   textInput.blur();
                   textInput.value = '';
                   thing.childNodes[3].innerHTML = biography;      
