@@ -72,7 +72,7 @@ const peopleCardBuilder = () => {
   printToDom(newString, "cards");
 };
 
-// Card editor
+// Card editor - Doing for loop, because forEach won't work. So much for forEach...
 const cardEditor = () => {
   const cardsArray = document.getElementsByClassName('card');
   for (let i=0; i < cardsArray.length; i++) {
