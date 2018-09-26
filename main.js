@@ -3,6 +3,8 @@ const printToDom = (stringToPrint, selectedDiv) => {
     document.getElementById(selectedDiv).innerHTML += stringToPrint;
 };
 
+const textInput = document.getElementById('textEditor');
+
 // People Object
 const people = [
     {
@@ -61,7 +63,7 @@ const people = [
 const peopleCardBuilder = () => {
   let newString = '';
   for (let i=0; i<people.length; i++) {
-      newString +=`<div id=${people[i]} class="card">`;
+      newString +=`<div class="card">`;
       newString +=      `<h1>${people[i].name}</h1>`;
       newString +=      `<h3>${people[i].title}</h3>`;
       newString +=      `<img class="photo" src="${people[i].image}"></img>`;
@@ -72,18 +74,32 @@ const peopleCardBuilder = () => {
   printToDom(newString, "cards");
 };
 
-// Card editor - Doing for loop, because forEach won't work. So much for forEach...
-const cardEditor = () => {
+// Card editor
+const cardSelector = () => {
   const cardsArray = document.getElementsByClassName('card');
   for (let i=0; i < cardsArray.length; i++) {
     const card = cardsArray[i];
     card.addEventListener('click', (e) => {
+      removeBorder(e.currentTarget.parentNode.children);
       const targetedCard = e.currentTarget;
       targetedCard.classList.toggle('selected');
+      textInput.focus();
     })
+      textInput.addEventListener("keyup", (e) => {
+        const things = document.getElementsByClassName('selected');
+        const thing = things[0];
+        thing.childNodes[3].innerHTML = textInput.value;
+      })
+  }
+};
+
+// Because no one wants to accidentally edit multiple cards at once
+const removeBorder = (cards) => {
+  for(i = 0; i < cards.length; i++) {
+      cards[i].classList.remove('selected');
   }
 };
 
 // Calling the functions
 peopleCardBuilder();
-cardEditor();
+cardSelector();
