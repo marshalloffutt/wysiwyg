@@ -77,18 +77,27 @@ const peopleCardBuilder = () => {
 // Card editor
 const cardSelector = () => {
   const cardsArray = document.getElementsByClassName('card');
-  for (let i=0; i < cardsArray.length; i++) {
-    const card = cardsArray[i];
-    card.addEventListener('click', (e) => {
-      removeBorder(e.currentTarget.parentNode.children);
-      const targetedCard = e.currentTarget;
-      targetedCard.classList.toggle('selected');
-      textInput.focus();
-    })
+  for (let i = 0; i < cardsArray.length; i++) {
+      const card = cardsArray[i];
+      card.addEventListener('click', (e) => {
+          removeBorder(e.currentTarget.parentNode.children);
+          const targetedCard = e.currentTarget;
+          targetedCard.classList.toggle('selected');
+          textInput.focus();
+      })
       textInput.addEventListener("keyup", (e) => {
-        const things = document.getElementsByClassName('selected');
-        const thing = things[0];
-        thing.childNodes[3].innerHTML = textInput.value;
+          const things = document.getElementsByClassName('selected');
+          const thing = things[0];
+          thing.childNodes[3].innerHTML = textInput.value;
+          textInput.addEventListener("keyup", (e) => {
+              if (e.keyCode === 13) {
+                  const biography = thing.childNodes[3].innerHTML;
+                  console.log(biography);
+                  textInput.blur();
+                  textInput.value = '';
+                  thing.childNodes[3].innerHTML = biography;      
+              }
+          })
       })
   }
 };
