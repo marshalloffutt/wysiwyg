@@ -8,13 +8,13 @@
 }
 
 .card {
-    border: 2px solid navy;
     width: 250px;
     background-color: lightblue;
     margin: 20px;
     justify-content: center;
     text-align: center;
     padding: 10px;
+    border: 1px solid navy;
 }
 
 
@@ -30,4 +30,8 @@
 #bioEditor {
     margin-top: 20px;
     margin-left: 20px;
+}
+
+.selected {
+    border: 4px dashed black;
 }

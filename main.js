@@ -61,21 +61,29 @@ const people = [
 const peopleCardBuilder = () => {
   let newString = '';
   for (let i=0; i<people.length; i++) {
-      newString +=`<div class="card">`;
-      newString +=    `<div class="card-header">`;
+      newString +=`<div id=${people[i]} class="card">`;
       newString +=      `<h1>${people[i].name}</h1>`;
       newString +=      `<h3>${people[i].title}</h3>`;
-      newString +=    `</div>`;
-      newString +=    `<div class="card-middle">`;
       newString +=      `<img class="photo" src="${people[i].image}"></img>`;
       newString +=      `<p class="bio">${people[i].bio}</p>`;
-      newString +=    `</div>`;
-      newString +=    `<div class="card-footer">`;
       newString +=      `<p class="lifespan">${people[i].lifespan.birth} to ${people[i].lifespan.death}</p>`;
-      newString +=    `</div>`;
       newString += `</div>`;
   }
   printToDom(newString, "cards");
 };
 
+// Card editor
+const cardEditor = () => {
+  const cardsArray = document.getElementsByClassName('card');
+  for (let i=0; i < cardsArray.length; i++) {
+    const card = cardsArray[i];
+    card.addEventListener('click', (e) => {
+      const targetedCard = e.currentTarget;
+      targetedCard.classList.toggle('selected');
+    })
+  }
+};
+
+// Calling the functions
 peopleCardBuilder();
+cardEditor();
