@@ -1,6 +1,6 @@
 # What You See Is What You Get
 
-Card-editor app exercise that makes use of event listeners, tests our understanding of order of importance in javascript, and challenges our ability to 'traverse the dom'.
+Card-editor app that makes use of event listeners, tests our understanding of order of importance in JavaScript, and challenges our ability to 'traverse the dom'. Once loaded, the user can click a card, and use the input field to edit the description of that card. And nothing else.
 
 ## Screenshots
 ![main screen shot](./screenshots/pic.png)
@@ -18,7 +18,3 @@ hs -p 9999
 ```
 localhost: 9999
 ```
-* Click one of the cards to see a dotted border appear around the card.
-* Now that input field is activated, you can type words to edit the bio.
-* Press Return to save the information in DOM, and clear input field.
-* Click another card.
