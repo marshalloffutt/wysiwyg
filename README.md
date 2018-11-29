@@ -4,7 +4,8 @@
 This is a card-editor app that makes use of event listeners, tests our understanding of order of importance in JavaScript, and challenges our ability to 'traverse the dom'. Once loaded, the user can click a card, and use the input field to edit the description of that card. And nothing else.
 
 ## Screenshots
-![main screen shot](./screenshots/pic.png)
+![mainview](./screenshots/snap1.png)
+![editedview](./screenshots/snap2.png)
 
 ## How to run this project
 * Clone this repository to your local machine.
